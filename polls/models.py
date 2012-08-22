@@ -2,9 +2,15 @@ from django.db import models
 from django.utils import timezone
 import datetime
 
+AUDIENCE_CHOICES=[
+          ('corp','Corporate Users'),
+          ('pub','Public Users'),
+    ]
+
 class Poll(models.Model):
     question = models.CharField(max_length=128)
     pub_date = models.DateTimeField(verbose_name='Date Published')
+    audience = models.CharField(max_length=8, choices=AUDIENCE_CHOICES)
     
     def __unicode__(self):
         return self.question
