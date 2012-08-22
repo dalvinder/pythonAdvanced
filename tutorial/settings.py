@@ -13,8 +13,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'tutorial',                      # Or path to database file if using sqlite3.
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME':'/tmp/tutorial.sqllite3',
+        #'ENGINE': 'django.db.backends.sqlite3',
+        #'NAME':'/tmp/tutorial.sqllite3',
         #'USER':'',
         #'PASSWORD':'',
         'USER': 'django',                      # Not used with sqlite3.
@@ -28,7 +28,7 @@ DATABASES = {
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
 # In a Windows environment this must be set to your system time zone.
-TIME_ZONE = 'America/Chicago'
+TIME_ZONE = 'America/Los_Angeles'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
