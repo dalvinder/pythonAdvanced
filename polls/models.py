@@ -9,8 +9,13 @@ AUDIENCE_CHOICES=[
 
 class Poll(models.Model):
     question = models.CharField(max_length=128)
-    pub_date = models.DateTimeField(verbose_name='Date Published')
+    pub_date = models.DateTimeField(verbose_name='Date Published',
+                                    auto_now_add=True)
+    last_updated = models.DateTimeField(verbose_name='Date Updated',
+                                    auto_now=True)
     audience = models.CharField(max_length=8, choices=AUDIENCE_CHOICES)
+    frequency = models.FloatField(verbose_name='Display Frequency',
+                    help_text='Controls how frequently the poll is displayed?')
     
     def __unicode__(self):
         return self.question
