@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+		{% if poll %}
+			<li>ID : {{poll.id}}</li>
+			<li>Question : {{poll.question}}</li>
+			<li>Published Date : {{poll.pub_date}}</li>
+			<li>Last updated Date : {{poll.last_updated}}</li>
+		{% endif %}
+{% endblock %}

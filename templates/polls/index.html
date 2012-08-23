@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p>
+	{% if user.is_authenticated %}
+		You are authenticated as {{user}}
+	{% else %}
+		You are not authenticated
+	{% endif %}
+</p>
+
+{% if latest_poll_list %}
+	<ul>
+		{% for poll in latest_poll_list %}
+			<li> <a href="/polls/{{poll.id}}">{{poll.question}}</a> {{poll.pub_date}}</li>
+		{% endfor %}		
+	</ul>
+{% else %}
+	<p>No polls are available</p>
+{% endif %}
+{% endblock %}
