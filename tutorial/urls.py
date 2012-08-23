@@ -6,6 +6,7 @@ from django.views.generic.list import ListView
 from polls.models import Poll
 from django.views.generic.detail import DetailView
 from django.views.generic.base import TemplateView
+from django.contrib.auth.views import logout
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -43,4 +44,6 @@ urlpatterns = patterns('',
         name="results"),
     
     url(r'^polls/(?P<poll_id>\d+)/vote/$','polls.views.vote',name="vote"),
+    url(r'',include('social_auth.urls')),
+    url(r'logout/$',logout, {'next_page':'/'},name='logout'),
 )

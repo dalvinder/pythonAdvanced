@@ -125,6 +125,7 @@ INSTALLED_APPS = (
     'polls',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
+    'django_bcrypt'
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
@@ -157,3 +158,24 @@ LOGGING = {
         },
     }
 }
+
+#----------------------------------------------------------------------
+#
+# django-social-auth
+#
+#----------------------------------------------------------------------
+INSTALLED_APPS+=(
+        'social_auth',
+    )
+
+AUTHENTICATION_BACKENDS = (
+    'social_auth.backends.facebook.FacebookBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+LOGIN_URL          = '/login-form/'
+LOGIN_REDIRECT_URL = '/logged-in/'
+LOGIN_ERROR_URL    = '/login-error/'
+
+FACEBOOK_APP_ID = '404666972928357'
+FACEBOOK_API_SECRET = '01abbd9a7071004258b81dab8926a401'
