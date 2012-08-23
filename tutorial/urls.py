@@ -5,6 +5,7 @@ from django.contrib import admin
 from django.views.generic.list import ListView
 from polls.models import Poll
 from django.views.generic.detail import DetailView
+from django.views.generic.base import TemplateView
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -18,6 +19,9 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
 
+    url(r'^$',TemplateView.as_view(
+        template_name='home.html'
+    ),name='home'),
     url(r'^polls/$',
         ListView.as_view(
             queryset=Poll.objects.order_by('-pub_date'),

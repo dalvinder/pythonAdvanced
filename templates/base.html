@@ -1,3 +1,4 @@
+{% load url from future %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -34,7 +35,7 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <a class="brand" href="#">eBay</a>
+          <a class="brand" href="{% url 'home' %}">eBay</a>
           <div class="nav-collapse collapse">
           </div><!--/.nav-collapse -->
         </div>
