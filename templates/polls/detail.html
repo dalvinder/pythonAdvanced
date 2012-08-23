@@ -1,10 +1,29 @@
 {% extends "base.html" %}
+{% load url from future %}
 
 {% block content %}
 		{% if poll %}
-			<li>ID : {{poll.id}}</li>
 			<li>Question : {{poll.question}}</li>
 			<li>Published Date : {{poll.pub_date}}</li>
 			<li>Last updated Date : {{poll.last_updated}}</li>
 		{% endif %}
+		
+		{% if error_message %}
+			<strong>{{ error_message }}</strong>
+		{% endif %}
+		
+		<form action="{% url 'vote' poll.pk %}" method="post">	
+			
+		{% csrf_token %}
+		
+		{% for choice in poll.choice_set.all %}
+			<input type="radio" name="choice" id="choice_{{ forloop.counter }}" value="{{ choice.pk }}" />
+			<label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label>
+			<br/>
+		{% endfor %}
+		
+		<input type="submit" value="Vote"/>
+		
+		</form>
+		
 {% endblock %}
